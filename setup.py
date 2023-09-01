@@ -6,7 +6,7 @@ from pathlib import Path
 long_description = Path("README.md").read_text()
 install_requires = Path("requirements.txt").read_text()
 
-package_name = "lautils"
+package_name = "py-lautils"
 
 exec(Path(f'{package_name}/_metadata.py').read_text(), meta := dict[str, str]())
 
