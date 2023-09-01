@@ -7,8 +7,9 @@ long_description = Path("README.md").read_text()
 install_requires = Path("requirements.txt").read_text()
 
 package_name = "py-lautils"
+package_name_no_py_prefix = "".join(package_name.split("py-")[1:])
 
-exec(Path(f'{package_name}/_metadata.py').read_text(), meta := dict[str, str]())
+exec(Path(f'{package_name_no_py_prefix}/_metadata.py').read_text(), meta := dict[str, str]())
 
 setuptools.setup(
     name=package_name,
@@ -21,10 +22,13 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=[
-        package_name
+        package_name_no_py_prefix,
+        f"{package_name_no_py_prefix}.enums",
+        f"{package_name_no_py_prefix}.types",
+        f"{package_name_no_py_prefix}.utils",
     ],
     package_data={
-        package_name: ['py.typed'],
+        package_name_no_py_prefix: ['py.typed'],
     },
     install_requires=install_requires,
     project_urls={
