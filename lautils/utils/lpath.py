@@ -11,6 +11,7 @@ __all__: list[str] = [
 
 class LPath(Path):
     """An extension built on top of the Path class."""
+    _flavour = type(Path())._flavour  # type: ignore
 
     def format(self, *args: Any, **kwargs: Any) -> LPath:
         """Format an LPath like you would a regular string."""
