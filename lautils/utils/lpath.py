@@ -20,6 +20,14 @@ class LPath(Path):
         """Helper to convert an LPath to a string without having to jump back and forth in the editor."""
         return str(self)
 
+    def startswith(self, prefix: str | tuple[str, ...]) -> bool:
+        """Checks whether the path starts with a given prefix or list of prefixes."""
+        return self.to_str().startswith(prefix)
+
+    def endswith(self, suffix: str | tuple[str, ...]) -> bool:
+        """Checks whether the path ends with a given suffix or list of suffixes."""
+        return self.to_str().endswith(suffix)
+
     def get_top(self) -> LPath:
         """Get the top directory of the LPath."""
         folder_path = self.resolve()
