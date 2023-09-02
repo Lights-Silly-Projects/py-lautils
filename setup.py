@@ -24,6 +24,7 @@ setuptools.setup(
     packages=[
         package_name_no_py_prefix,
         f"{package_name_no_py_prefix}.enums",
+        f"{package_name_no_py_prefix}.integrations",
         f"{package_name_no_py_prefix}.types",
         f"{package_name_no_py_prefix}.utils",
     ],
